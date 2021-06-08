@@ -29,6 +29,7 @@ namespace Notepad
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Notepad));
             this.saveFile = new System.Windows.Forms.SaveFileDialog();
             this.worlspacefolderBrowser = new System.Windows.Forms.FolderBrowserDialog();
@@ -56,6 +57,7 @@ namespace Notepad
             this.htmlHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.llbbl = new System.Windows.Forms.Label();
             this.filelabel = new System.Windows.Forms.Label();
+            this.backimage = new System.Windows.Forms.NotifyIcon(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -256,6 +258,13 @@ namespace Notepad
             this.filelabel.Size = new System.Drawing.Size(0, 17);
             this.filelabel.TabIndex = 4;
             // 
+            // backimage
+            // 
+            this.backimage.Icon = ((System.Drawing.Icon)(resources.GetObject("backimage.Icon")));
+            this.backimage.Text = "Notepad";
+            this.backimage.Visible = true;
+            this.backimage.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.backimage_MouseDoubleClick);
+            // 
             // Notepad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -308,6 +317,7 @@ namespace Notepad
         private System.Windows.Forms.ToolStripMenuItem fontToolStripMenuItem;
         private System.Windows.Forms.Label llbbl;
         private System.Windows.Forms.Label filelabel;
+        private System.Windows.Forms.NotifyIcon backimage;
     }
 }
 

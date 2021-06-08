@@ -213,5 +213,10 @@ namespace Notepad
         {
 
         }
+
+        private void backimage_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
