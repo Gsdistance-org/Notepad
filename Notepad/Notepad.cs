@@ -22,6 +22,7 @@ namespace Notepad
         public Notepad()
         {
             InitializeComponent();
+            FontDialog = new FontDialog();
         }
 
         private void openFile_FileOk(object sender, CancelEventArgs e)
@@ -66,7 +67,25 @@ namespace Notepad
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit(null);
+            try
+            {
+                if (!string.IsNullOrEmpty(textfield.Text))
+                {
+                    savefile();
+                }
+                else
+                {
+                    this.Close();
+                }
+        }
+            catch(Exception ex)
+            {
+
+            }
+            finally
+            {
+
+            }
         }
 
         private void textfield_TextChanged(object sender, EventArgs e)
@@ -86,7 +105,21 @@ namespace Notepad
 
         private void fontToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if(FontDialog.ShowDialog()== DialogResult.OK)
+                {
+                    this.textfield.Font = FontDialog.Font;
+                }
+            }
+            catch (Exception ex)
+            {
 
+            }
+            finally
+            {
+
+            }
         }
 
         private void openfile()
@@ -216,7 +249,22 @@ namespace Notepad
 
         private void backimage_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Application.Exit();
+            this.Close();
+        }
+
+        private void focusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textfield.Focus();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void workspaceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
